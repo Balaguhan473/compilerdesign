@@ -1,0 +1,47 @@
+%{
+int nchar, nword, nline;
+%}
+%%
+\n { nline++; nchar++; }
+[^ \t\n]+ { nword++, nchar += yyleng; }
+. { nchar++; }
+%%
+int yywrap(void) {
+return 1;
+}
+int main(int argc, char *argv[]) {
+yyin = fopen(argv[1], "r");
+yylex();
+printf("Number of characters = %d\n", nchar);
+printf("Number of words = %d\n", nword);
+printf("Number of lines = %d\n", nline);
+fclose(yyin);
+}
+
+
+output:
+Microsoft Windows [Version 10.0.22000.2295]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\BALAGUHAN.K\OneDrive\Desktop\lex cd>set path=C:\Program Files\GnuWin32\bin
+
+C:\Users\BALAGUHAN.K\OneDrive\Desktop\lex cd>flex count lines,char.txt
+flex: can't open count
+
+C:\Users\BALAGUHAN.K\OneDrive\Desktop\lex cd>flex count lines,char.l.txt
+flex: can't open count
+
+C:\Users\BALAGUHAN.K\OneDrive\Desktop\lex cd>flex count_lines,char.l.txt
+
+C:\Users\BALAGUHAN.K\OneDrive\Desktop\lex cd>set path=C:\MinGW\bin
+
+C:\Users\BALAGUHAN.K\OneDrive\Desktop\lex cd>gcc lex.yy.c
+
+C:\Users\BALAGUHAN.K\OneDrive\Desktop\lex cd>a.exe
+count_lines,char.c
+^Z
+Number of characters = 19
+Number of words = 1
+Number of lines = 1
+
+C:\Users\BALAGUHAN.K\OneDrive\Desktop\lex cd>
