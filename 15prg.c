@@ -140,28 +140,3 @@ else
     printf("\nNot Accepted;");
 }
 
-Output:
-Enter the string
-i*(i+i)*i
-
-STACK   INPUT   ACTION
-$i      *(i+i)*i$       Shift
-$E      *(i+i)*i$       Reduced: E->i
-$E*     (i+i)*i$        Shift
-$E*(    i+i)*i$ 		Shift
-$E*(i   +i)*i$  		Shift
-$E*(E   +i)*i$  	Reduced: E->i
-$E*(E+  i)*i$   	Shift
-$E*(E+i )*i$    	Shift
-$E*(E+E )*i$    	Reduced: E->i
-$E*(E   )*i$    Reduced: E->E+E
-$E*(E)  *i$     Shift
-$E*E    *i$     Reduced: E->)E(
-$E      *i$     Reduced: E->E*E
-$E*     i$      Shift
-$E*i    $       Shift
-$E*E    $       Reduced: E->i
-$E      $       Reduced: E->E*E
-$E$             Shift
-$E$             Shift
-Accepted;
