@@ -1,0 +1,30 @@
+Input C Program: 
+<html>
+<body>
+<h1>My First Heading</h1>
+<p>My first paragraph.</p>
+</body>
+</html>
+
+LEX PROGRAM:
+Input Source Program: (sample.html)
+<html>
+<body>
+<h1>My First Heading</h1>
+<p>My first paragraph.</p>
+</body>
+</html>
+
+OUTPUT:
+C:\Users\BALA\OneDrive\Desktop\LEX Compiler Design>set path=C:\Program Files\GnuWin32\bin
+
+C:\Users\BALA\OneDrive\Desktop\LEX Compiler Design>flex lex24.l.txt
+
+C:\Users\BALAI\OneDrive\Desktop\LEX Compiler Design>set path=C:\MinGW\bin
+
+C:\Users\BALA\OneDrive\Desktop\LEX Compiler Design>gcc lex.yy.c
+
+C:\Users\BALA\OneDrive\Desktop\LEX Compiler Design>a.exe
+Enter File Name : lex24.l.txt
+<"[^>
+Number of html tags: 1
