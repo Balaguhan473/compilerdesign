@@ -1,0 +1,35 @@
+%{
+	int vow_count=0;
+	int const_count =0;
+%}
+
+%%
+[aeiouAEIOU] {vow_count++;}
+[a-zA-Z] {const_count++;}
+%%
+int yywrap(){}
+int main()
+{
+	printf("Enter the string of vowels and consonents:");
+	yylex();
+	printf("Number of vowels are: %d\n", vow_count);
+	printf("Number of consonants are: %d\n", const_count);
+	return 0;
+}
+
+OUTPUT:
+C:\Users\BALA\OneDrive\Desktop\LEX Compiler Design>set path=C:\Program Files\GnuWin32\bin
+
+C:\Users\BALA\OneDrive\Desktop\LEX Compiler Design>flex vow.l.txt
+
+C:\Users\BALA\OneDrive\Desktop\LEX Compiler Design>set path=C:\MinGW\bin
+
+C:\Users\BALA\OneDrive\Desktop\LEX Compiler Design>gcc lex.yy.c
+
+C:\Users\v\OneDrive\Desktop\LEX Compiler Design>a.exe
+Enter the string of vowels and consonents:Refer the program and output of experiment
+
+vow.l.txt
+^Z
+Number of vowels are: 15
+Number of consonants are: 28
