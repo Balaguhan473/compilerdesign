@@ -1,0 +1,29 @@
+LEX PROGRAM:
+%%
+[1-9][0-9]{9} {printf("\nMobile Number Valid\n");}
+.+ {printf("\nMobile Number Invalid\n");}
+%%
+int main()
+{
+	printf("\nEnter Mobile Number : ");
+	yylex();
+	printf("\n");
+	return 0;
+}
+int yywrap()
+{ }
+
+OUTPUT:
+C:\Users\BALA\Desktop\lex programs>set path=F:\Program Files\GnuWin32\bin
+
+C:\Users\BALA\Desktop\lex programs>flex lex28.l.txt
+
+C:\Users\BALA\Desktop\lex programs>set path=E:\MinGW\bin
+
+C:\Users\BALA\Desktop\lex programs>gcc lex.yy.c
+
+C:\Users\BALA\Desktop\lex programs>a.exe
+
+Enter Mobile Number : 8765432123
+
+Mobile Number Valid
