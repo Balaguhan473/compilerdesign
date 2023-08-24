@@ -1,0 +1,29 @@
+%%
+((0[1-9])|([1-2][0-9])|(3[0-1]))\/((0[1-9])|(1[0-2]))\/(19[0-9]{2}|2[0-9]{3}) printf("Valid DoB");
+.* printf("Invalid DoB");
+%%
+
+int main()
+{
+ yylex();
+ return 0;
+}
+int yywrap()
+{}
+
+OUTPUT:
+C:\Users\BALA\OneDrive\Desktop\LEX Compiler Design>set path=C:\Program Files\GnuWin32\bin
+
+C:\Users\BALA\OneDrive\Desktop\LEX Compiler Design>flex dob.l.txt
+
+C:\Users\BALA\OneDrive\Desktop\LEX Compiler Design>set path=C:\MinGW\bin
+
+C:\Users\BALA\OneDrive\Desktop\LEX Compiler Design>gcc lex.yy.c
+
+C:\Users\BALA\OneDrive\Desktop\LEX Compiler Design>a.exe
+24/01/2002
+Valid DoB
+
+
+28/1/04
+Invalid DoB
