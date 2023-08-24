@@ -1,0 +1,31 @@
+%{
+int flag=0;
+%}
+%%
+[a-z . 0-9]+@[a-z]+".com"|".in" { flag=1; }
+%%
+int main()
+{
+yylex();
+if(flag==1)
+printf("Accepted");
+else
+printf("Not Accepted");
+}
+int yywrap()
+{ return 1;
+ }
+
+OUTPUT:
+C:\Users\BALA\OneDrive\Desktop\LEX Compiler Design>set path=C:\Program Files\GnuWin32\bin
+
+C:\Users\BALA\OneDrive\Desktop\LEX Compiler Design>flex email.l.txt
+
+C:\Users\BALAI\OneDrive\Desktop\LEX Compiler Design>set path=C:\MinGW\bin
+
+C:\Users\BALA\OneDrive\Desktop\LEX Compiler Design>gcc lex.yy.c
+
+C:\Users\BALA\OneDrive\Desktop\LEX Compiler Design>a.exe
+sse123@gmail.com
+
+Accepted
