@@ -1,0 +1,37 @@
+%{
+int positive_no = 0, negative_no = 0;
+%}
+%%
+^[-][0-9]+ {negative_no++;
+			printf("negative number = %s\n",
+				yytext);} 
+
+[0-9]+ {positive_no++;
+		printf("positive number = %s\n",
+				yytext);} 
+%%
+int yywrap(){}
+int main()											
+{
+yylex();
+printf ("number of positive numbers = %d,"
+		"number of negative numbers = %d\n",
+				positive_no, negative_no);
+return 0;
+}
+
+OUTPUT:
+C:\Users\BALA\OneDrive\Desktop\LEX Compiler Design>set path=C:\Program Files\GnuWin32\bin
+
+C:\Users\BALA\OneDrive\Desktop\LEX Compiler Design>flex pos.l.txt
+
+C:\Users\BALA\OneDrive\Desktop\LEX Compiler Design>set path=C:\MinGW\bin
+
+C:\Users\BALA\OneDrive\Desktop\LEX Compiler Design>gcc lex.yy.c
+
+C:\Users\BALA\OneDrive\Desktop\LEX Compiler Design>a.exe
+-24
+negative number = -24
+
+24
+positive number = 24
